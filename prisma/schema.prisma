@@ -1,0 +1,35 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+model PrismUser {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  privyId           String   @unique
+  walletSigner      String   @unique
+  walletAbstract    String?  @unique
+  admin             Boolean  @default(false)
+  email             String?  @unique
+  google            String?  @unique
+  twitter           String?  @unique
+  discord           String?  @unique
+  walletExternal    String?  @unique
+  username          String?  @unique
+  avatarId          String?
+  referralCode      String   @unique @default(cuid())
+  referredByUserId  String?
+  referralCount     Int      @default(0)
+  banned            Boolean  @default(false)
+  bannedReason      String?
+}
