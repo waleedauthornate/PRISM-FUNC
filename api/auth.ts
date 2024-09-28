@@ -7,7 +7,7 @@ const prisma = new PrismaClient({
     },
   },
 });
-
+// change
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, email, privyId, walletSigner, avatarId } = req.body;
