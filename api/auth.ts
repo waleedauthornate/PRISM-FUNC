@@ -15,6 +15,7 @@ export default async function handler(req, res) {
     if (!username && !email) {
       return res.status(400).json({ error: "Username or email is required" });
     }
+    //
 
     try {
       // Check if the user already exists
