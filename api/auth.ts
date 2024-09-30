@@ -99,9 +99,7 @@ export default async function handler(req, res) {
       });
 
       if (existingUser) {
-        return res
-          .status(200)
-          .json({ message: "Welcome back!", user: existingUser });
+        return res.status(200).json({ message: "Welcome back!", existingUser });
       }
 
       // Create a new user if one doesn't exist
