@@ -11,6 +11,11 @@ const prisma = new PrismaClient({
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, email, privyId, walletSigner, avatarId } = req.body;
+    console.log("username: " + username);
+    console.log("email: " + email);
+    console.log("walletSigner: " + walletSigner);
+    console.log("privyId: " + username);
+    console.log("avatarId: " + avatarId);
 
     if (!username && !email) {
       return res.status(400).json({ error: "Username or email is required" });
