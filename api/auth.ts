@@ -75,7 +75,7 @@ const prisma = new PrismaClient({
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, email, privyId, avatarId } = req.body;
-    const walletSigner = Math.random();
+    const walletSigner = Math.random().toString();
     console.log("username: " + username);
     console.log("email: " + email);
     console.log("walletSigner: " + walletSigner);
