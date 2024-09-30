@@ -79,7 +79,7 @@ export default async function handler(req, res) {
     console.log("username: " + username);
     console.log("email: " + email);
     console.log("walletSigner: " + walletSigner);
-    console.log("privyId: " + username);
+    console.log("privyId: " + privyId);
     console.log("avatarId: " + avatarId);
     console.log("----");
 
