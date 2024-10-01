@@ -28,10 +28,7 @@ export default async function handler(req, res) {
       // Check if the user already exists
       const existingUser = await prisma.prismUser.findFirst({
         where: {
-          OR: [
-            { username: username ?? undefined },
-            { email: email ?? undefined },
-          ],
+          privyId: privyId ?? undefined,
         },
       });
 
