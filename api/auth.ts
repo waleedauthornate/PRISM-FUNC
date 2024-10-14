@@ -12,6 +12,13 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, email, privyId } = req.body;
     const walletSigner = Math.random().toString().replace(".", "x");
+    const avatarId = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+    console.log("username: " + username);
+    console.log("email: " + email);
+    console.log("walletSigner: " + walletSigner);
+    console.log("privyId: " + privyId);
+    console.log("avatarId: " + avatarId);
+    console.log("----");
 
     if (!username && !email) {
       return res.status(400).json({ error: "Username or email is required" });
@@ -36,12 +43,9 @@ export default async function handler(req, res) {
           email,
           privyId,
           walletSigner,
-          avatarId: `https://avatar.iran.liara.run/public/boy?username=${username}`,
+          avatarId,
         },
       });
-      console.log("newUser");
-      console.log(newUser);
-      console.log("newUser");
 
       return res.status(201).json({ message: "User created", user: newUser });
     } catch (error) {
