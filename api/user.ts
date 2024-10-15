@@ -11,6 +11,7 @@ const prisma = new PrismaClient({
 export default async function handler(req, res) {
   if (req.method === "GET") {
     const { privyId } = req.query;
+    console.log(privyId);
 
     if (!privyId) {
       return res.status(400).json({ error: "Privy ID is required" });
@@ -20,6 +21,7 @@ export default async function handler(req, res) {
       const user = await prisma.prismUser.findFirst({
         where: { privyId },
       });
+      console.log(user);
 
       if (!user) {
         return res.status(404).json({ error: "User not found" });

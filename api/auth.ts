@@ -12,7 +12,9 @@ export default async function handler(req, res) {
   if (req.method === "POST") {
     const { username, email, privyId } = req.body;
     const walletSigner = Math.random().toString().replace(".", "x");
-    const avatarId = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+    const avatarId = `https://avatar.iran.liara.run/public/boy?username=${
+      username || "hello"
+    }`;
     console.log("username: " + username);
     console.log("email: " + email);
     console.log("walletSigner: " + walletSigner);
