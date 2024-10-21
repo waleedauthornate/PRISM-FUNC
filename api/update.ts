@@ -12,6 +12,11 @@ export default async function handler(req, res) {
   if (req.method === "PATCH") {
     const { privyId } = req.query;
     const { username, email, walletSigner, avatarId } = req.body;
+    console.log(privyId);
+    console.log(username);
+    console.log(email);
+    console.log(walletSigner);
+    console.log(avatarId);
 
     if (!privyId) {
       return res.status(400).json({ error: "Privy ID is required" });
