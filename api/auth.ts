@@ -1,4 +1,4 @@
-import { Prisma, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient({
   datasources: {
@@ -22,6 +22,7 @@ export default async function handler(req, res) {
           OR: [
             { privyId: privyId ?? undefined },
             { email: email ?? undefined },
+            { username: username ?? undefined },
           ],
         },
       });
